@@ -1,13 +1,13 @@
 <div align="center">
   <img src="img/dogebot.png" alt="doge-bot" width="250" height="250">
   <p>Crypto trading bot that follows a Twitter account and buys crypto automatically when mentioned!</p>
-</div>
+</div>  
 
-### Configuration
+## Configuration
 
 Before running the DogeBot application, make sure to provide required configuration.  
 
-# 1. Environmental variables
+### 1. Environmental variables
 Set up the required API keys by creating a .env file in the config directory. The .env file should have the following structure:
 
 ```
@@ -22,7 +22,7 @@ BINANCE_API_SECRET=""
 Replace the empty quotes ("") with your actual API keys obtained from the respective services.  
 These API keys are necessary for accessing the [Twitter API](https://developer.twitter.com/en/docs/twitter-api). and [Binance API](https://www.binance.com/en/binance-api).  
 
-# 2. Dogebot conifg
+### 2. Dogebot conifg
 
 Create a file named dogebot.config.js in config directory. The file should have the following structure:
 
@@ -48,7 +48,7 @@ Customize the values in the JSON object according to your preferences:
 
 Make sure to review and update the configuration values according to your needs before running the DogeBot application.  
 
-### Run with Docker
+## Run with Docker
 
 Build the Docker image by running the following command: 
 
