@@ -2,7 +2,7 @@
     "name": "node-dogebot",
     "description": "Trading bot that buys DOGE when Elon Musk tweets",
     "version": "1.0.0",
-    "type": "module",
+    "type": "commonjs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
@@ -10,6 +10,8 @@
     ],
     "scripts": {
         "build": "tsc",
+        "build:docker": "DOCKER_BUILDKIT=1 docker build -t node-dogebot:1.0.0 .",
+        "debug": "ts-node ./src/index.ts",
         "start": "node dist/index.js",
         "test": "test"
     },
@@ -28,6 +30,7 @@
     "devDependencies": {
         "@types/node": "^20.2.5",
         "@types/twit": "^2.2.31",
+        "ts-node": "^10.9.1",
         "typescript": "^5.0.4"
     }
 }

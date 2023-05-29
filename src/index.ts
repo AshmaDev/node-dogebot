@@ -1,7 +1,8 @@
 import fs from "fs";
 import { DogeBot } from "./dogebot";
+import { join } from "path";
 
-const CONFIG_PATH: string = "./dogebot.config.json";
+const CONFIG_PATH: string = join(__dirname, "../config/dogebot.config.json");
 
 fs.readFile(CONFIG_PATH, "utf8", (err, data) => {
   if (err) {
