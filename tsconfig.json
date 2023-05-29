@@ -10,6 +10,7 @@
     "declaration": true,
     "outDir": "dist",
     "esModuleInterop": true,
+    "noImplicitAny": false,
     "strict": true
   },
   "includes": [

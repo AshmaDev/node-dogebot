@@ -4,6 +4,7 @@
     "trade": {
         "enabled": false,
         "balancePercentage": 0.25,
+        "timeToSell": 5,
         "coin": "DOGE",
         "pairCoin": "USDT"
     }
