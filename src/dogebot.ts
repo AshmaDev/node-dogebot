@@ -9,8 +9,11 @@ import createBinance, {
     Order,
 } from "binance-api-node";
 import dotenv from "dotenv";
+import { join } from "path";
 
-dotenv.config();
+dotenv.config({
+    path: join(__dirname, '../config/.env')
+});
 
 const MINIMUM_TRADE_VALUE: number = 10;
 const TRADE_SIDE: OrderSide_LT = "BUY";
@@ -116,7 +119,7 @@ export class DogeBot {
     };
 
     private createTwitterClient(): Twit {
-        if (!process.env.TWIITER_CONSUMER_KEY) {
+        if (!process.env.TWITTER_CONSUMER_KEY) {
             console.error("TWIITER_CONSUMER_KEY is not defined in the environment variables.");
             process.exit(1);
         }
@@ -127,7 +130,7 @@ export class DogeBot {
         }
 
         return new Twit({
-            consumer_key: process.env.TWIITER_CONSUMER_KEY,
+            consumer_key: process.env.TWITTER_CONSUMER_KEY,
             consumer_secret: process.env.TWITTER_API_SECRET,
             access_token: process.env.TWITTER_ACCESS_TOKEN,
             access_token_secret: process.env.TWITTER_ACCESS_SECRET,
