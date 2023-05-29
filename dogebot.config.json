@@ -1,3 +1,10 @@
 {
-    "twitterId": 44196397
+    "twitterId": 44196397,
+    "allowReplies": false,
+    "trade": {
+        "enabled": false,
+        "balancePercentage": 0.25,
+        "coin": "DOGE",
+        "pairCoin": "USDT"
+    }
 }

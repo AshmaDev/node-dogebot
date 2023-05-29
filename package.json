@@ -21,6 +21,7 @@
     "license": "MIT",
     "homepage": "https://github.com/ashmadev/node-dogebot#readme",
     "dependencies": {
+        "binance-api-node": "^0.12.4",
         "dotenv": "^9.0.2",
         "twit": "^2.2.11"
     },
