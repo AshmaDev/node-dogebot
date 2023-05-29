@@ -2,6 +2,7 @@
     "name": "node-dogebot",
     "description": "Trading bot that buys DOGE when Elon Musk tweets",
     "version": "1.0.0",
+    "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
