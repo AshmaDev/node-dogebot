@@ -1,7 +1,7 @@
 import createBinance, {
     Binance,
     Account,
-    OrderSide,
+    OrderSide_LT,
     OrderType,
     Order,
 } from "binance-api-node";
@@ -30,23 +30,11 @@ export class BinanceHandler {
         });
     }
 
-    public async createOrder(pairSymbol: string, buyAmount: number): Promise<Order> {
+    public async createOrder(pairSymbol: string, quantity: number, side: OrderSide_LT): Promise<Order> {
         const order: Order = await this.binanceClient.order({
             symbol: pairSymbol,
-            side: OrderSide.BUY,
-            quantity: buyAmount.toString(),
-            type: OrderType.MARKET,
-            recvWindow: 60000,
-        });
-
-        return order;
-    }
-
-    public async sellOrder(pairSymbol: string, sellAmount: number): Promise<Order> {
-        const order: Order = await this.binanceClient.order({
-            symbol: pairSymbol,
-            side: OrderSide.SELL,
-            quantity: sellAmount.toString(),
+            side,
+            quantity: quantity.toString(),
             type: OrderType.MARKET,
             recvWindow: 60000,
         });

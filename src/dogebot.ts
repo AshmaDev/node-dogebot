@@ -1,6 +1,7 @@
 import {
     Account,
     AssetBalance,
+    OrderSide,
     OrderFill,
     Order,
 } from "binance-api-node";
@@ -49,7 +50,6 @@ export class DogeBot {
     public trackTwitter() {
         console.log("Tracking Twitter...");
         const stream: Stream = this.twitterHandler.createStream({ follow: this.twitterId });
-
         stream.on("tweet", this.handleTwitterStream);
     }
 
@@ -88,7 +88,7 @@ export class DogeBot {
         const tradeAmount: number = parseFloat(pairCoinBalance.free) * this.trade.balancePercentage!;
         const buyAmount: number = tradeAmount / parseFloat(price);
 
-        const order: Order = await this.binanceHandler.createOrder(pairSymbol, buyAmount);
+        const order: Order = await this.binanceHandler.createOrder(pairSymbol, buyAmount, OrderSide.BUY);
 
         if (order && order.fills) {
             let totalPrice: number = 0;
@@ -125,7 +125,7 @@ export class DogeBot {
 
         const sellAmount: number = parseInt(pairCoinBalance.free);
 
-        const order: Order = await this.binanceHandler.sellOrder(pairSymbol, sellAmount);
+        const order: Order = await this.binanceHandler.createOrder(pairSymbol, sellAmount, OrderSide.SELL);
 
         if (order && order.fills) {
             let totalPrice: number = 0;
