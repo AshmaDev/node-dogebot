@@ -1,0 +1,31 @@
+{
+    "name": "node-dogebot",
+    "description": "Trading bot that buys DOGE when Elon Musk tweets",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ashmadev/node-dogebot.git"
+    },
+    "author": "AshmaDev",
+    "license": "MIT",
+    "homepage": "https://github.com/ashmadev/node-dogebot#readme",
+    "dependencies": {
+        "dotenv": "^9.0.2",
+        "twit": "^2.2.11"
+    },
+    "devDependencies": {
+        "@types/node": "^20.2.5",
+        "@types/twit": "^2.2.31",
+        "typescript": "^5.0.4"
+    }
+}
