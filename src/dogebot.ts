@@ -5,16 +5,9 @@ import {
     OrderFill,
     Order,
 } from "binance-api-node";
-import dotenv from "dotenv";
-import { join } from "path";
 import Twit, { Stream } from "twit";
-
 import { TwitterHandler } from "./twitterhandler";
 import { BinanceHandler } from "./binancehandler";
-
-dotenv.config({
-    path: join(__dirname, '../config/.env')
-});
 
 const MINIMUM_TRADE_VALUE = 10;
 
@@ -48,7 +41,7 @@ export class DogeBot {
     }
 
     public trackTwitter() {
-        console.log("Tracking Twitter...");
+        console.log("Tracking Twitter...", this.twitterId);
         const stream: Stream = this.twitterHandler.createStream({ follow: this.twitterId });
         stream.on("tweet", this.handleTwitterStream);
     }

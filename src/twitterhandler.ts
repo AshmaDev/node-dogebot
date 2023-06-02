@@ -1,4 +1,10 @@
+import dotenv from "dotenv";
+import { join } from "path";
 import Twit, { Stream } from "twit";
+
+dotenv.config({
+    path: join(__dirname, '../config/.env')
+});
 
 export class TwitterHandler {
     private twitterClient: Twit;
@@ -8,8 +14,8 @@ export class TwitterHandler {
     }
 
     private createTwitterClient(): Twit {
-        if (!process.env.TWIITER_CONSUMER_KEY) {
-            console.error("TWIITER_CONSUMER_KEY is not defined in the environment variables.");
+        if (!process.env.TWIITER_API_KEY) {
+            console.error("TWIITER_API_KEY is not defined in the environment variables.");
             process.exit(1);
         }
 
@@ -19,7 +25,7 @@ export class TwitterHandler {
         }
 
         return new Twit({
-            consumer_key: process.env.TWIITER_CONSUMER_KEY,
+            consumer_key: process.env.TWIITER_API_KEY,
             consumer_secret: process.env.TWITTER_API_SECRET,
             access_token: process.env.TWITTER_ACCESS_TOKEN,
             access_token_secret: process.env.TWITTER_ACCESS_SECRET,

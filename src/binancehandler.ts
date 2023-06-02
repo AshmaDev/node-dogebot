@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+import { join } from "path";
 import createBinance, {
     Binance,
     Account,
@@ -5,6 +7,10 @@ import createBinance, {
     OrderType,
     Order,
 } from "binance-api-node";
+
+dotenv.config({
+    path: join(__dirname, '../config/.env')
+});
 
 export class BinanceHandler {
     private binanceClient: Binance;
